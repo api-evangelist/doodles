@@ -1,0 +1,64 @@
+generated: '2026-08-12'
+method: derived
+source: >-
+  asyncapi/doodles-webhooks.yml, authentication/doodles-authentication.yml,
+  security/doodles-domain-security.yml, well-known/doodles-well-known.yml
+note: >-
+  Derived from the artifacts already in this repo. Doodles publishes no compliance
+  program, certification list, or trust center (trust.doodles.app and
+  security.doodles.app are NXDOMAIN; probe-security-programs.py returned no hit), so
+  NO Compliance pointer is emitted.
+standards:
+- id: openapi
+  conforms: false
+  evidence: No OpenAPI or Swagger document found on any Doodles host or in its GitHub org.
+- id: asyncapi
+  conforms: false
+  evidence: Webhook surface is documented in prose + a reference server only.
+- id: oauth2
+  conforms: false
+  evidence: No authorization or token endpoints published.
+- id: oidc
+  conforms: false
+  evidence: /.well-known/openid-configuration returned 429 (bot challenge), no document.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors are plain-text bodies with an HTTP status; no application/problem+json.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returned 429 (bot challenge), no document.
+- id: rfc8615-well-known
+  conforms: false
+  evidence: No /.well-known document could be retrieved from any Doodles host.
+- id: rfc9421-http-message-signatures
+  conforms: false
+  evidence: Webhooks use a proprietary x-signature HMAC-SHA256 header, not RFC 9421.
+- id: hmac-webhook-signing
+  conforms: true
+  evidence: >-
+    HMAC-SHA256 over the raw JSON body, base64, in x-signature, verified in constant
+    time — https://github.com/Doodles/webhook-example
+- id: tls-1.3
+  conforms: true
+  evidence: www.doodles.app negotiates TLSv1.3 (security/doodles-domain-security.yml).
+- id: hsts
+  conforms: false
+  evidence: No Strict-Transport-Security header observed on www.doodles.app.
+- id: dnssec
+  conforms: false
+  evidence: No DNSKEY for doodles.app.
+- id: caa
+  conforms: false
+  evidence: No CAA records for doodles.app.
+- id: spf
+  conforms: true
+  evidence: SPF record present for doodles.app.
+- id: dmarc
+  conforms: true
+  evidence: DMARC present, policy=quarantine.
+- id: a2a
+  conforms: false
+  evidence: No agent card at /.well-known/agent-card.json or /.well-known/agent.json.
+- id: mcp
+  conforms: false
+  evidence: No hosted MCP server found in docs, registries, or the GitHub org.

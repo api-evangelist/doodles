@@ -42,5 +42,33 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Doodles is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://www.hiive.com/securities/doodles-stock
+Doodles, LLC is a Web3-native entertainment and character-IP company built around the
+10,000-piece Doodles NFT collection launched on Ethereum in 2021 by Scott Martin (Burnt
+Toast), Evan Keast and Jordan Castro. It owns the Emmy-nominated animation studio Golden
+Wolf and ships the Stoodio avatar app, the DOOD token, the Prism image model trained on
+Doodles-owned IP, and DreamNet.
+
+## Developer surface
+
+**Doodles publishes no public REST API and no developer portal.** `docs.doodles.app`, still
+indexed by search engines as "Doodles Public Docs", no longer resolves (NXDOMAIN, checked
+2026-08-12). The whole `*.doodles.app` web deployment answers unauthenticated requests —
+including `/robots.txt` — with an HTTP 429 Vercel Security Checkpoint bot challenge, so no
+`/.well-known/*`, `llms.txt`, or spec path could be evaluated.
+
+What Doodles does publish, on its own GitHub organization and on npm:
+
+- **A signed outbound webhook contract** — [Doodles/webhook-example](https://github.com/Doodles/webhook-example),
+  an Express/TypeScript reference receiver. HMAC-SHA256 over the raw JSON body, base64, in an
+  `x-signature` header, constant-time compared. Two event types: `request` and `response`.
+  Captured in [`asyncapi/doodles-webhooks.yml`](asyncapi/doodles-webhooks.yml).
+- **Two first-party open-source Flow-blockchain libraries** — `@doodlesteam/floo` and
+  `@doodlesteam/flooks`, both v0.1.0 published 2024-01-05 and dormant since. Captured with
+  release currency in [`packages/doodles-packages.yml`](packages/doodles-packages.yml).
+
+No OpenAPI, AsyncAPI, GraphQL SDL, MCP server, A2A agent card, status page, changelog, CLI,
+plans, or rate limits were found. Recorded absences are written down rather than omitted.
+
+- Company: https://www.doodles.app/
+- GitHub: https://github.com/Doodles
+- Secondary market listing: https://www.hiive.com/securities/doodles-stock

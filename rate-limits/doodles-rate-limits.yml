@@ -1,0 +1,16 @@
+generated: '2026-08-12'
+method: searched
+source: https://github.com/Doodles/webhook-example
+limit_count: 0
+note: >-
+  No published rate limits. Doodles operates no public API, and the webhook
+  integration contract documents no delivery rate, burst, retry, or backoff behavior
+  and no RateLimit-*/X-RateLimit-*/Retry-After response headers. Separately, the
+  public web surface answers unauthenticated requests with HTTP 429 from a Vercel
+  Security Checkpoint interstitial — that is a bot challenge, not a documented API
+  rate limit, and it is recorded in well-known/doodles-well-known.yml rather than
+  here. Recorded as an honest zero; NO RateLimits pointer is wired into apis.yml,
+  because that pointer would assert a runtime rate-limit signal the provider does not
+  publish.
+limits: []
+headers: []

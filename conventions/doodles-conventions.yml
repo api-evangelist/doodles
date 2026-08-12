@@ -1,0 +1,56 @@
+generated: '2026-08-12'
+method: searched
+source: https://github.com/Doodles/webhook-example
+scope: >-
+  Cross-cutting request/response semantics for the Doodles webhook integration
+  contract — the only machine-facing surface Doodles publishes. Doodles has no public
+  REST API, so there are no pagination, expansion, versioning or rate-limit
+  conventions to record for one; those fields are recorded as null rather than
+  omitted, so "not published" is distinguishable from "not checked".
+authentication:
+  style: hmac-signature
+  header: x-signature
+  detail: authentication/doodles-authentication.yml
+idempotency:
+  supported: false
+  header: null
+  note: >-
+    No idempotency key, deduplication id, delivery id, or retry contract is documented
+    for the webhook surface. A receiver has no published way to detect a redelivery.
+    No Idempotency pointer is emitted for this provider.
+pagination:
+  style: null
+  note: No paged collection surface is published.
+expansion:
+  supported: null
+  note: Not applicable — no resource API.
+metadata:
+  supported: null
+request_tracing:
+  header: null
+  note: No request-id or event-id header is documented on webhook deliveries.
+versioning:
+  scheme: null
+  note: >-
+    The webhook payload carries no version field and no version header is documented.
+    Breaking changes to the payload would be undetectable by a receiver.
+error_envelope:
+  format: plain-text body with HTTP status
+  problem_json: false
+  note: >-
+    The published reference receiver replies with bare text bodies ("Invalid
+    signature", "Webhook secret is not set") alongside 403/500. This is the receiver's
+    contract, not a Doodles-side error catalog; Doodles publishes no error code
+    registry, so errors/ is intentionally empty rather than fabricated.
+rate_limit_signaling:
+  headers: []
+  note: >-
+    No rate-limit headers documented. Separately, the public web surface
+    (www.doodles.app) answers unauthenticated requests with HTTP 429 from a Vercel
+    Security Checkpoint interstitial — a bot challenge, not an API rate limit.
+content_type: application/json
+cross_links:
+  authentication: authentication/doodles-authentication.yml
+  webhooks: asyncapi/doodles-webhooks.yml
+  packages: packages/doodles-packages.yml
+  security: security/doodles-domain-security.yml

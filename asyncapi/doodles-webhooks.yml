@@ -1,0 +1,67 @@
+generated: '2026-08-12'
+method: searched
+source: https://github.com/Doodles/webhook-example
+spec_type: none
+note: >-
+  Doodles publishes no AsyncAPI document. It does publish a first-party, signed
+  outbound-webhook integration contract as a reference receiver on its own GitHub
+  organization (Doodles/webhook-example, TypeScript/Express, last updated
+  2025-06-26). Doodles POSTs an event to a URL you host; your receiver verifies the
+  signature and returns a JSON body that Doodles consumes back — an interception /
+  transform contract for chat request and response events, not a fire-and-forget
+  notification. Everything below is transcribed from that repository's README and
+  src/server.ts; nothing is inferred. There is no published subscription/registration
+  API for these webhooks — the endpoint and secret are configured out of band.
+direction: outbound
+transport: https
+method_verb: POST
+content_type: application/json
+security:
+  scheme: hmac
+  algorithm: HMAC-SHA256
+  encoding: base64
+  header: x-signature
+  signed_payload: raw JSON request body
+  secret: shared webhook secret, configured out of band (WEBHOOK_SECRET)
+  verification: constant-time comparison (crypto.timingSafeEqual)
+  reference: https://github.com/Doodles/webhook-example#signature-verification
+events:
+- name: request
+  field: eventType
+  value: request
+  description: >-
+    Fired for an inbound chat request before it is processed. The receiver may return
+    modified text; saveModified controls whether the modified text is written to chat
+    history.
+- name: response
+  field: eventType
+  value: response
+  description: >-
+    Fired for an outbound chat response before it is delivered. Same modify-and-return
+    contract as the request event.
+payload:
+  discriminator: eventType
+  fields:
+  - {name: eventType, type: string, enum: [request, response], description: Which side of the chat exchange this event represents.}
+  - {name: text, type: string, description: The message text; the receiver returns its (optionally modified) value.}
+  - {name: saveModified, type: boolean, description: Whether Doodles should persist the receiver's modified text to chat history. Defaults by event type; the receiver may override it explicitly.}
+  note: >-
+    The receiver echoes the original payload back with `text` and `saveModified` set.
+    The published example does not enumerate any further payload fields, so none are
+    recorded here.
+receiver_responses:
+- {status: 200, meaning: Signature valid; modified payload returned to Doodles.}
+- {status: 403, meaning: Invalid or missing x-signature.}
+- {status: 500, meaning: Receiver misconfigured (no webhook secret set).}
+reference_implementation:
+  repository: https://github.com/Doodles/webhook-example
+  language: typescript
+  framework: express
+  license: null
+  last_updated: '2025-06-26'
+  local_testing: ngrok HTTPS tunnel, documented in the repository README
+gaps:
+- No AsyncAPI or OpenAPI document is published for this surface.
+- No public event catalog beyond the two eventType values above.
+- No delivery/retry, ordering, or timeout semantics are documented.
+- No public webhook registration or management API; endpoint + secret are set out of band.

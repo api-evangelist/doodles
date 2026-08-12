@@ -1,0 +1,49 @@
+generated: '2026-08-12'
+method: searched
+source: https://registry.npmjs.org/ + https://github.com/Doodles
+note: >-
+  Doodles publishes no client SDK for a Doodles API (there is no public Doodles REST
+  API). The two first-party libraries below are open-source Flow-blockchain helpers
+  released under the @doodlesteam npm scope, authored by Doodles and hosted on the
+  Doodles GitHub organization. Registry metadata was read unauthenticated from
+  registry.npmjs.org on 2026-08-12. Both packages last published 2024-01-05 and remain
+  at 0.1.0 / beta — a first-party release cadence that has been dormant for over two
+  years. No Doodles package was found on PyPI, RubyGems, crates.io, Packagist,
+  pkg.go.dev, NuGet or Maven Central.
+packages:
+- language: typescript
+  registry: npm
+  name: '@doodlesteam/flooks'
+  url: https://www.npmjs.com/package/@doodlesteam/flooks
+  install: npm install @doodlesteam/flooks
+  official: true
+  version: 0.1.0
+  published: '2024-01-05'
+  license: MIT
+  repository: https://github.com/Doodles/flooks
+  description: React hooks for connecting to the Flow blockchain ("wagmi for Flow").
+  status: beta
+  versions_published: 3
+- language: typescript
+  registry: npm
+  name: '@doodlesteam/floo'
+  url: https://www.npmjs.com/package/@doodlesteam/floo
+  install: npm install @doodlesteam/floo
+  official: true
+  version: 0.1.0
+  published: '2024-01-05'
+  license: MIT
+  repository: https://github.com/Doodles/floo
+  description: >-
+    Wraps the Flow Client Library (FCL) with TypeScript typings and convenience helpers.
+  status: beta
+  versions_published: 2
+registries_checked:
+- {registry: npm, scope: '@doodlesteam', found: 2}
+- {registry: pypi, found: 0}
+- {registry: rubygems, found: 0}
+- {registry: crates.io, found: 0}
+- {registry: packagist, found: 0}
+- {registry: nuget, found: 0}
+- {registry: maven-central, found: 0}
+- {registry: pkg.go.dev, found: 0}

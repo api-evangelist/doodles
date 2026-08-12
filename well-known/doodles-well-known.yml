@@ -1,0 +1,35 @@
+generated: '2026-08-12'
+method: probed
+source: live HTTP probes 2026-08-12
+host: https://www.doodles.app
+note: >-
+  NO HIT. Every path below — including /robots.txt — was answered by a Vercel Security
+  Checkpoint interstitial with HTTP 429 and a text/html body, on both www.doodles.app
+  and stoodio.doodles.app. Nothing was served, so no document was harvested and NO
+  WellKnown or SecurityTxt pointer is emitted: this file records an absence, not a
+  presence. The 429 is a bot challenge on the provider's Vercel deployment, not a
+  404 — the paths were never actually evaluated by an origin. docs.doodles.app, which
+  search engines still index as "Doodles Public Docs", is NXDOMAIN as of this probe.
+documents:
+- {path: /.well-known/security.txt, status: 429, content_type: 'text/html', file: null}
+- {path: /.well-known/openid-configuration, status: 429, content_type: 'text/html', file: null}
+- {path: /.well-known/oauth-authorization-server, status: 429, content_type: 'text/html', file: null}
+- {path: /.well-known/oauth-protected-resource, status: 429, content_type: 'text/html', file: null}
+- {path: /.well-known/api-catalog, status: 429, content_type: 'text/html', file: null}
+- {path: /.well-known/ai-plugin.json, status: 429, content_type: 'text/html', file: null}
+- {path: /.well-known/agent-card.json, status: 429, content_type: 'text/html', file: null}
+- {path: /.well-known/agent.json, status: 429, content_type: 'text/html', file: null}
+- {path: /llms.txt, status: 429, content_type: 'text/html', file: null}
+- {path: /openapi.json, status: 429, content_type: 'text/html', file: null}
+- {path: /swagger.json, status: 429, content_type: 'text/html', file: null}
+- {path: /api-docs, status: 429, content_type: 'text/html', file: null}
+- {path: /robots.txt, status: 429, content_type: 'text/html', file: null}
+other_hosts_probed:
+- host: https://stoodio.doodles.app
+  result: identical 429 Vercel Security Checkpoint on all thirteen paths
+- host: https://docs.doodles.app
+  result: DNS NXDOMAIN — the documented docs host no longer resolves
+- host: https://api.doodles.app
+  result: DNS NXDOMAIN
+- host: https://dreamnet.doodles.app
+  result: DNS NXDOMAIN

@@ -1,17 +1,33 @@
 aid: doodles
 name: Doodles
-description: 'Doodles is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Doodles is a Web3-native entertainment and media company built around the
+  10,000-piece Doodles NFT collection launched on Ethereum in 2021 by artist Scott Martin
+  (Burnt Toast) with Evan Keast and Jordan Castro. Doodles, LLC has since grown into a
+  character-IP and animation business — it acquired the Emmy-nominated animation studio
+  Golden Wolf, ships the Stoodio avatar app, the DOOD token, the Prism image model trained
+  on Doodles-owned IP, and DreamNet, an onchain worldbuilding and storytelling layer.
+  Doodles publishes no public REST API or developer portal; its machine-readable developer
+  surface is limited to two first-party open-source npm libraries for the Flow blockchain
+  (@doodlesteam/floo and @doodlesteam/flooks) and a signed outbound webhook integration
+  contract published as a reference server on its GitHub organization.'
+image: https://avatars.githubusercontent.com/u/96498387?v=4
 url: https://raw.githubusercontent.com/api-evangelist/doodles/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-12'
 modified: '2026-08-12'
 tags:
 - Company
+- NFT
+- Web3
+- Blockchain
+- Entertainment
+- Media
+- Digital Collectibles
+- Animation
+- Consumer
+- Webhooks
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +35,36 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/doodles-domain-security.yml
+- type: Packages
+  url: packages/doodles-packages.yml
+- type: SDKs
+  url: packages/doodles-packages.yml
+- type: Webhooks
+  url: asyncapi/doodles-webhooks.yml
+- type: Authentication
+  url: authentication/doodles-authentication.yml
+- type: Conventions
+  url: conventions/doodles-conventions.yml
+- type: Conformance
+  url: conformance/doodles-conformance.yml
+- type: LLMsTxt
+  url: llms/doodles-llms.txt
+- type: SourceCode
+  url: https://github.com/Doodles/webhook-example
 - type: Website
+  url: https://www.doodles.app/
+- type: GitHubOrganization
+  url: https://github.com/Doodles
+- type: TermsOfService
+  url: https://www.doodles.app/legal/terms
+- type: PrivacyPolicy
+  url: https://www.doodles.app/legal/privacy-policy
+- type: SecondaryMarket
   url: https://www.hiive.com/securities/doodles-stock
+x-enrichment:
+  date: '2026-08-12'
+  status: enriched
+  artifacts_added: 10
+  pass: local-v1

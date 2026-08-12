@@ -1,0 +1,13 @@
+generated: '2026-08-12'
+method: searched
+source: https://www.doodles.app/
+plan_count: 0
+note: >-
+  Doodles publishes no API plans, tiers, quotas, or developer pricing of any kind —
+  there is no public API to price. Its commercial surfaces are consumer ones (NFT
+  collections, the DOOD token, the Stoodio app, a Shopify storefront at
+  shop.doodles.app). No pricing or plans page for a developer program was found on any
+  Doodles host, in its GitHub organization, or in search. Recorded as an honest zero;
+  NO Plans pointer is wired into apis.yml, because a Plans pointer would assert a
+  developer pricing surface the provider does not publish.
+plans: []
