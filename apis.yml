@@ -10,6 +10,17 @@ description: 'Doodles is a Web3-native entertainment and media company built aro
   surface is limited to two first-party open-source npm libraries for the Flow blockchain
   (@doodlesteam/floo and @doodlesteam/flooks) and a signed outbound webhook integration
   contract published as a reference server on its GitHub organization.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://avatars.githubusercontent.com/u/96498387?v=4
 url: https://raw.githubusercontent.com/api-evangelist/doodles/refs/heads/main/apis.yml
 x-type: company
