@@ -12,14 +12,18 @@ description: 'Doodles is a Web3-native entertainment and media company built aro
   contract published as a reference server on its GitHub organization.'
 deliveryModel:
   model: saas
-  open_source: false
+  license_evidence:
+    not_product:
+    - doodles/webhook-example
+  open_source: unknown
   commercial: true
   callable_host: false
   label: Hosted service · you call their endpoint
-  confidence: medium
+  confidence: low
   source:
   - pricing
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: unknown
