@@ -64,33 +64,101 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Doodles, LLC is a Web3-native entertainment and character-IP company built around the
-10,000-piece Doodles NFT collection launched on Ethereum in 2021 by Scott Martin (Burnt
-Toast), Evan Keast and Jordan Castro. It owns the Emmy-nominated animation studio Golden
-Wolf and ships the Stoodio avatar app, the DOOD token, the Prism image model trained on
-Doodles-owned IP, and DreamNet.
+Doodles is a Web3-native entertainment and media company built around the 10,000-piece Doodles NFT collection launched on Ethereum in 2021 by artist Scott Martin (Burnt Toast) with Evan Keast and Jordan Castro. Doodles, LLC has since grown into a character-IP and animation business — it acquired the Emmy-nominated animation studio Golden Wolf, ships the Stoodio avatar app, the DOOD token, the Prism image model trained on Doodles-owned IP, and DreamNet, an onchain worldbuilding and storytelling layer. Doodles publishes no public REST API or developer portal; its machine-readable developer surface is limited to two first-party open-source npm libraries for the Flow blockchain (@doodlesteam/floo and @doodlesteam/flooks) and a signed outbound webhook integration contract published as a reference server on its GitHub organization.
 
-## Developer surface
+**Areas:** Company · NFT · Web3 · Blockchain · Entertainment · Media · Digital Collectibles · Animation · Consumer · Webhook
 
-**Doodles publishes no public REST API and no developer portal.** `docs.doodles.app`, still
-indexed by search engines as "Doodles Public Docs", no longer resolves (NXDOMAIN, checked
-2026-08-12). The whole `*.doodles.app` web deployment answers unauthenticated requests —
-including `/robots.txt` — with an HTTP 429 Vercel Security Checkpoint bot challenge, so no
-`/.well-known/*`, `llms.txt`, or spec path could be evaluated.
+## Doodles on APIs.io
 
-What Doodles does publish, on its own GitHub organization and on npm:
+Everything profiled for Doodles is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/doodles/](https://apis.io/providers/doodles/)** — or go straight to one of the APIs or properties below.
 
-- **A signed outbound webhook contract** — [Doodles/webhook-example](https://github.com/Doodles/webhook-example),
-  an Express/TypeScript reference receiver. HMAC-SHA256 over the raw JSON body, base64, in an
-  `x-signature` header, constant-time compared. Two event types: `request` and `response`.
-  Captured in [`asyncapi/doodles-webhooks.yml`](asyncapi/doodles-webhooks.yml).
-- **Two first-party open-source Flow-blockchain libraries** — `@doodlesteam/floo` and
-  `@doodlesteam/flooks`, both v0.1.0 published 2024-01-05 and dormant since. Captured with
-  release currency in [`packages/doodles-packages.yml`](packages/doodles-packages.yml).
+### Published properties
 
-No OpenAPI, AsyncAPI, GraphQL SDL, MCP server, A2A agent card, status page, changelog, CLI,
-plans, or rate limits were found. Recorded absences are written down rather than omitted.
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- Company: https://www.doodles.app/
-- GitHub: https://github.com/Doodles
-- Secondary market listing: https://www.hiive.com/securities/doodles-stock
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Doodles Webhooks](https://apis.io/asyncapis/doodles/doodles-webhooks/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Doodles Authentication](https://apis.io/security/doodles/doodles-authentication/)
+- [Doodles Domain Security](https://apis.io/security/doodles/doodles-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Doodles Plans Pricing](https://apis.io/plans/doodles/doodles-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Doodles Rate Limits](https://apis.io/rate-limits/doodles/doodles-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.doodles.app/)
+- [Terms of service](https://www.doodles.app/legal/terms)
+- [Privacy policy](https://www.doodles.app/legal/privacy-policy)
+- [GitHub](https://github.com/Doodles)
+
+## API Evangelist rating
+
+**Kin Score 23.2** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 48.2 |
+| Contract quality | 39.0 |
+| Contract governance | 4.5 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 19.0 |
+| Access clarity | 10.5 |
+
+**Agent readiness 22.3** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | yes |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 20.6** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/doodles/](https://apis.io/providers/doodles/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Doodles: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/doodles/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
